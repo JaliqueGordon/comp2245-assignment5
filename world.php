@@ -16,9 +16,15 @@ $stmt->execute();
 $results = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
 
+echo "<table border='1'>";
+echo "<tr><th>Country Name</th><th>Continent</th><th>Independence Year</th><th>Head of State</th></tr>";
+foreach ($results as $row) {
+    echo "<tr>";
+    echo "<td>{$row['name']}</td>";
+    echo "<td>{$row['continent']}</td>";
+    echo "<td>{$row['independence_year']}</td>";
+    echo "<td>{$row['head_of_state']}</td>";
+    echo "</tr>";
+}
+echo "</table>";
 ?>
-<ul>
-<?php foreach ($results as $row): ?>
-  <li><?= $row['name'] . ' is ruled by ' . $row['head_of_state']; ?></li>
-<?php endforeach; ?>
-</ul>
